@@ -4,14 +4,20 @@ This repository hosts public release APKs for VSMS Digital. The source code is m
 
 ## 📥 Download Latest Release
 
-- 📱 **[VSMS_Digital_v1.4.0_debug.apk](VSMS_Digital_v1.4.0_debug.apk)**: Recommended installation package for Android devices.
-- 📱 **[VSMS_Digital_v1.4.0_release.apk](VSMS_Digital_v1.4.0_release.apk)**: Production package for Android devices.
+- 📱 **[VSMS_Digital_v1.4.1_debug.apk](VSMS_Digital_v1.4.1_debug.apk)**: Recommended installation package for Android devices.
+- 📱 **[VSMS_Digital_v1.4.1_release.apk](VSMS_Digital_v1.4.1_release.apk)**: Production package for Android devices.
 
 ---
 
 ## 📝 Release Changelog
 
-### v1.4.0 (Current Release)
+### v1.4.1 (Current Release)
+- **Manual Referral Entry & Search**: Added a searchable dropdown with custom referral source entry to Demographics, allowing clinicians to select presets or add custom doctors/sources with local and Google Drive cloud persistence.
+- **Dynamic Assessment Locations**: Purged prefilled default locations, retaining only custom entered clinics/centres with native device file storage and Google Drive cloud synchronization.
+- **Terminology Standardization**: Replaced clinician designations with "Clinical Psychologist" across Demographics, Saved Assessments table, and Clinical Reports.
+- **Report Signature**: Standardized the signature field on reports to "Clinician's Signature".
+
+### v1.4.0
 - **Tabulated Database View**: Replaced card grid on the Saved Assessments page with a full-width responsive clinical data table.
 - **Direct Record Editing**: Introduced per-row Edit action that loads assessment data into the active Demographics and Checklist workflow, recalculates results automatically, and updates the saved record upon Save.
 - **Interactive Table Sorting**: Added interactive sorting across all data columns (MRD ID, Patient Name, Age, Sex, Date of Assessment, Clinical Psychologist, SQ Score) with visual direction indicators.
