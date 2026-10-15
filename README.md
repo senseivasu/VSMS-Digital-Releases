@@ -4,14 +4,21 @@ This repository hosts public release APKs for VSMS Digital. The source code is m
 
 ## 📥 Download Latest Release
 
-- 📱 **[VSMS_Digital_v1.4.1_debug.apk](VSMS_Digital_v1.4.1_debug.apk)**: Recommended installation package for Android devices.
-- 📱 **[VSMS_Digital_v1.4.1_release.apk](VSMS_Digital_v1.4.1_release.apk)**: Production package for Android devices.
+- 📱 **[VSMS_Digital_v1.5.0_debug.apk](VSMS_Digital_v1.5.0_debug.apk)**: Recommended installation package for Android devices.
+- 📱 **[VSMS_Digital_v1.5.0_release.apk](VSMS_Digital_v1.5.0_release.apk)**: Production package for Android devices.
 
 ---
 
 ## 📝 Release Changelog
 
-### v1.4.1 (Current Release)
+### v1.5.0 (Current Release)
+- **Native Google Authentication**: Integrated `@capawesome/capacitor-google-sign-in` utilizing Android Credential Manager for 1-tap Google login.
+- **Mandatory Clinician Sign-In Gate**: Implemented `LoginGate.jsx` clinician authentication gate while keeping the existing hardware `ALLOWED_DEVICE_IDS` check fully enforced.
+- **Access Restriction via Test Users**: Enforced access control via Google Cloud Console OAuth Test Users whitelist with dedicated in-app authorization dialogs.
+- **Automated Google Drive Sync**: Patient assessments are automatically backed up and synchronized to each clinician's private Google Drive `appDataFolder` (`vsms_assessments_data.json`) with silent background token refresh.
+- **Clinician Identity Synchronization**: Automatically pre-populates default practitioner name from the signed-in Google account profile.
+
+### v1.4.1
 - **Manual Referral Entry & Search**: Added a searchable dropdown with custom referral source entry to Demographics, allowing clinicians to select presets or add custom doctors/sources with local and Google Drive cloud persistence.
 - **Dynamic Assessment Locations**: Purged prefilled default locations, retaining only custom entered clinics/centres with native device file storage and Google Drive cloud synchronization.
 - **Terminology Standardization**: Replaced clinician designations with "Clinical Psychologist" across Demographics, Saved Assessments table, and Clinical Reports.
