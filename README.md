@@ -4,14 +4,23 @@ This repository hosts public release APKs for VSMS Digital. The source code is m
 
 ## 📥 Download Latest Release
 
-- 📱 **[VSMS_Digital_v1.5.0_debug.apk](VSMS_Digital_v1.5.0_debug.apk)**: Recommended installation package for Android devices.
-- 📱 **[VSMS_Digital_v1.5.0_release.apk](VSMS_Digital_v1.5.0_release.apk)**: Production package for Android devices.
+- 📱 **[VSMS_Digital_v1.5.2_debug.apk](VSMS_Digital_v1.5.2_debug.apk)**: Recommended installation package for Android devices.
+- 📱 **[VSMS_Digital_v1.5.2_release.apk](VSMS_Digital_v1.5.2_release.apk)**: Production package for Android devices.
 
 ---
 
 ## 📝 Release Changelog
 
-### v1.5.0 (Current Release)
+### v1.5.2 (Current Release)
+- **Eliminated Duplicate Assessment Saves**: Serialized file storage operations via an atomic sequential execution queue (`runExclusive`) to eliminate race conditions between concurrent saves and disk I/O.
+- **Smart Patient Identity Matching & Idempotency**: Automatically matches existing records by MRD or Name + DOB + DOA to update records in place rather than creating duplicates, treating identical re-saves as idempotent no-ops.
+- **Session Persistence**: Stored `activeRecordId` in local storage (`vsms_active_record_id`) ensuring patient sessions remain linked across browser refreshes and app reloads.
+- **Controlled Action-Driven Page Navigation**: Restricted progression between Demographics, Checklist, and Report strictly to on-page buttons (Next, Generate Report, Back), converting top step tabs to visual-only progress indicators and disabling swipe/arrow jumping.
+- **Deterministic Save Triggers**: Automatically saves demographic drafts on "Next: Checklist" and full assessment scores on "Generate Report".
+- **Interactive Unsaved Edits Toast**: Prompts clinicians when "Generate Report" is clicked on a modified record with options to "Save & View Report" or "View Report Only".
+- **Export & PDF Debouncing**: Added in-flight locks to PDF generation and JSON export buttons to eliminate duplicate file downloads on rapid multi-clicks.
+
+### v1.5.0
 - **Native Google Authentication**: Integrated `@capawesome/capacitor-google-sign-in` utilizing Android Credential Manager for 1-tap Google login.
 - **Mandatory Clinician Sign-In Gate**: Implemented `LoginGate.jsx` clinician authentication gate while keeping the existing hardware `ALLOWED_DEVICE_IDS` check fully enforced.
 - **Access Restriction via Test Users**: Enforced access control via Google Cloud Console OAuth Test Users whitelist with dedicated in-app authorization dialogs.
