@@ -4,14 +4,20 @@ This repository hosts public release APKs for VSMS Digital. The source code is m
 
 ## 📥 Download Latest Release
 
-- 📱 **[VSMS_Digital_v1.5.2_debug.apk](VSMS_Digital_v1.5.2_debug.apk)**: Recommended installation package for Android devices.
-- 📱 **[VSMS_Digital_v1.5.2_release.apk](VSMS_Digital_v1.5.2_release.apk)**: Production package for Android devices.
+- 📱 **[VSMS_Digital_v1.5.3_debug.apk](VSMS_Digital_v1.5.3_debug.apk)**: Recommended installation package for Android devices.
+- 📱 **[VSMS_Digital_v1.5.3_release.apk](VSMS_Digital_v1.5.3_release.apk)**: Production package for Android devices.
 
 ---
 
 ## 📝 Release Changelog
 
-### v1.5.2 (Current Release)
+### v1.5.3 (Current Release)
+- **Google Drive Web Sync 401 Reconnect Flow**: Proactively detects expired OAuth access tokens without refresh tokens on Web, providing an amber "Session Expired" badge and a 1-click "Reconnect Google Account" prompt.
+- **Tombstone Tracking for Deleted Records**: Implemented persistent `deletedIds` tombstone tracking in local file storage, imports, and cloud synchronization to permanently prevent deleted records from resurrecting during manual or background sync.
+- **Cross-Platform Deduplication**: Enhanced cloud merge with patient identity matching (MRD ID or Name + DOB + Date of Assessment) to merge records into single authoritative entries and purge superseded duplicate IDs.
+- **Save & Start Fresh Modal Fix**: Resolved opening screen button hang by adding patient DOB validation with confirmation prompts, visual loading spinners, and graceful error handling.
+
+### v1.5.2
 - **Eliminated Duplicate Assessment Saves**: Serialized file storage operations via an atomic sequential execution queue (`runExclusive`) to eliminate race conditions between concurrent saves and disk I/O.
 - **Smart Patient Identity Matching & Idempotency**: Automatically matches existing records by MRD or Name + DOB + DOA to update records in place rather than creating duplicates, treating identical re-saves as idempotent no-ops.
 - **Session Persistence**: Stored `activeRecordId` in local storage (`vsms_active_record_id`) ensuring patient sessions remain linked across browser refreshes and app reloads.
